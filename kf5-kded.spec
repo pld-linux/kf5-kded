@@ -1,15 +1,15 @@
-%define		kdeframever	5.45
-%define		qtver		5.3.2
+%define		kdeframever	5.53
+%define		qtver		5.9.0
 %define		kfname		kded
 
 Summary:	Central daemon of KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.45.0
+Version:	5.53.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	944c9bdb34c2c967313a01c59d1558c4
+# Source0-md5:	8edde556c89c783dbd6bd9956f52e0cf
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -80,6 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
+/etc/xdg/kded.categories
 %attr(755,root,root) %{_bindir}/kded5
 %attr(755,root,root) %{_libdir}/libkdeinit5_kded5.so
 %{_datadir}/dbus-1/interfaces/org.kde.kded5.xml
