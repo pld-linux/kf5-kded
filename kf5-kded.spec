@@ -1,15 +1,15 @@
-%define		kdeframever	5.56
+%define		kdeframever	5.59
 %define		qtver		5.9.0
 %define		kfname		kded
 
 Summary:	Central daemon of KDE work spaces
 Name:		kf5-%{kfname}
-Version:	5.56.0
+Version:	5.59.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	a2ed3e22036855d08aab3e60ea00abe5
+# Source0-md5:	808dbe3afac7c9a20d8dcc0bcebe5502
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -86,6 +86,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/dbus-1/services/org.kde.kded5.service
 %{_datadir}/kservicetypes5/kdedmodule.desktop
 %{_mandir}/man8/kded5.8*
+%{_desktopdir}/org.kde.kded5.desktop
+%lang(ca) %{_mandir}/ca/man8/kded5.8*
+%lang(de) %{_mandir}/de/man8/kded5.8*
+%lang(es) %{_mandir}/es/man8/kded5.8*
+%lang(it) %{_mandir}/it/man8/kded5.8*
+%lang(nl) %{_mandir}/nl/man8/kded5.8*
+%lang(pt) %{_mandir}/pt/man8/kded5.8*
+%lang(pt_BR) %{_mandir}/pt_BR/man8/kded5.8*
+%lang(ru) %{_mandir}/ru/man8/kded5.8*
+%lang(sv) %{_mandir}/sv/man8/kded5.8*
+%lang(uk) %{_mandir}/uk/man8/kded5.8*
 
 %files devel
 %defattr(644,root,root,755)
