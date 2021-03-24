@@ -1,5 +1,5 @@
 %define		kdeframever	5.80
-%define		qtver		5.9.0
+%define		qtver		5.14.0
 %define		kfname		kded
 
 Summary:	Central daemon of KDE work spaces
@@ -11,29 +11,28 @@ Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	9ca29c96782536d2527d23a78a70b1b4
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
-BuildRequires:	Qt5Xml-devel >= %{qtver}
-BuildRequires:	cmake >= 2.8.12
-BuildRequires:	gettext-devel
+BuildRequires:	cmake >= 3.5
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
-BuildRequires:	kf5-karchive-devel >= %{version}
 BuildRequires:	kf5-kconfig-devel >= %{version}
 BuildRequires:	kf5-kcoreaddons-devel >= %{version}
 BuildRequires:	kf5-kcrash-devel >= %{version}
 BuildRequires:	kf5-kdbusaddons-devel >= %{version}
 BuildRequires:	kf5-kdoctools-devel >= %{version}
-BuildRequires:	kf5-ki18n-devel >= %{version}
-BuildRequires:	kf5-kinit-devel >= %{version}
 BuildRequires:	kf5-kservice-devel >= %{version}
-BuildRequires:	kf5-kwindowsystem-devel >= %{version}
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	Qt5DBus >= %{qtver}
+Requires:	Qt5Widgets >= %{qtver}
 Requires:	kf5-dirs
+Requires:	kf5-kconfig >= %{version}
+Requires:	kf5-kcoreaddons >= %{version}
+Requires:	kf5-kcrash >= %{version}
+Requires:	kf5-kdbusaddons >= %{version}
+Requires:	kf5-kservice >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt5dir		%{_libdir}/qt5
