@@ -23,9 +23,10 @@ BuildRequires:	kf5-kdbusaddons-devel >= %{version}
 BuildRequires:	kf5-kdoctools-devel >= %{version}
 BuildRequires:	kf5-kservice-devel >= %{version}
 BuildRequires:	ninja
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.011
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires(post,preun):	systemd-units >= 250.1
 Requires:	Qt5DBus >= %{qtver}
 Requires:	Qt5Widgets >= %{qtver}
 Requires:	kf5-dirs
@@ -34,6 +35,7 @@ Requires:	kf5-kcoreaddons >= %{version}
 Requires:	kf5-kcrash >= %{version}
 Requires:	kf5-kdbusaddons >= %{version}
 Requires:	kf5-kservice >= %{version}
+Requires:	systemd-units >= 250.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt5dir		%{_libdir}/qt5
@@ -73,7 +75,13 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
+%post
+/sbin/ldconfig
+%systemd_user_post plasma-kded.service
+
+%preun
+%systemd_user_preun plasma-kded.service
+
 %postun -p /sbin/ldconfig
 
 %files
