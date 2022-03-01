@@ -3,6 +3,7 @@
 %define		kfname		kded
 
 Summary:	Central daemon of KDE work spaces
+Summary(pl.UTF-8):	Centralny demon przestrzeni roboczych KDE
 Name:		kf5-%{kfname}
 Version:	5.91.0
 Release:	1
@@ -10,7 +11,7 @@ License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	a272d2e425e1bcda33151c89d68b806b
-URL:		http://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
@@ -45,6 +46,11 @@ KDED stands for KDE Daemon which isn't very descriptive. KDED runs in
 the background and performs a number of small tasks. Some of these
 tasks are built in, others are started on demand.
 
+%description -l pl.UTF-8
+KDED to skrót od KDE Daemon, co nie mówi zbyt wiele. KDED działa w tle
+i wykonuje wiele małych zadań. Niektóre są wbudowane, inne uruchamiane
+w razie potrzeby.
+
 %package devel
 Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
@@ -70,6 +76,7 @@ cd build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 %clean
