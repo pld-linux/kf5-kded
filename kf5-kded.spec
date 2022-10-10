@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.98
+%define		kdeframever	5.99
 %define		qtver		5.15.2
 %define		kfname		kded
 
 Summary:	Central daemon of KDE work spaces
 Summary(pl.UTF-8):	Centralny demon przestrzeni roboczych KDE
 Name:		kf5-%{kfname}
-Version:	5.98.0
+Version:	5.99.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	09bece0ab6d1f590932df778ac8b8642
+# Source0-md5:	0d3cc67ad546098651915159c0d7d17a
 URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -113,6 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ca) %{_mandir}/ca/man8/kded5.8*
 %lang(de) %{_mandir}/de/man8/kded5.8*
 %lang(es) %{_mandir}/es/man8/kded5.8*
+%lang(fr) %{_mandir}/fr/man8/kded5.8*
 %lang(it) %{_mandir}/it/man8/kded5.8*
 %lang(nl) %{_mandir}/nl/man8/kded5.8*
 %lang(pt) %{_mandir}/pt/man8/kded5.8*
