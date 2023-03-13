@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.103
+%define		kdeframever	5.104
 %define		qtver		5.15.2
 %define		kfname		kded
 
 Summary:	Central daemon of KDE work spaces
 Summary(pl.UTF-8):	Centralny demon przestrzeni roboczych KDE
 Name:		kf5-%{kfname}
-Version:	5.103.0
+Version:	5.104.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	bf91ba7c557268d302075b1d631e380c
+# Source0-md5:	463419940da8f30b75f2e7d74488364f
 URL:		https://kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
