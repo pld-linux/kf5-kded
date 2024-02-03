@@ -1,23 +1,23 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.114
+%define		kdeframever	5.249.0
 %define		qtver		5.15.2
 %define		kfname		kded
 
 Summary:	Central daemon of KDE work spaces
 Summary(pl.UTF-8):	Centralny demon przestrzeni roboczych KDE
 Name:		kf5-%{kfname}
-Version:	5.114.0
-Release:	1
+Version:	5.249.0
+Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	fb68c030fec9108000ac7f92e3d65628
+Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	fc9f5fef07fc86d2c4bfad2b22cef1ae
 URL:		https://kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5DBus-devel >= %{qtver}
-BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6DBus-devel >= %{qtver}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-kconfig-devel >= %{version}
@@ -31,8 +31,8 @@ BuildRequires:	rpmbuild(macros) >= 2.011
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires(post,preun):	systemd-units >= 1:250.1
-Requires:	Qt5DBus >= %{qtver}
-Requires:	Qt5Widgets >= %{qtver}
+Requires:	Qt6DBus >= %{qtver}
+Requires:	Qt6Widgets >= %{qtver}
 Requires:	kf5-dirs
 Requires:	kf5-kconfig >= %{version}
 Requires:	kf5-kcoreaddons >= %{version}
@@ -42,7 +42,7 @@ Requires:	kf5-kservice >= %{version}
 Requires:	systemd-units >= 1:250.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt5dir		%{_libdir}/qt5
+%define		qt6dir		%{_libdir}/qt6
 
 %description
 KDED stands for KDE Daemon which isn't very descriptive. KDED runs in
@@ -50,9 +50,9 @@ the background and performs a number of small tasks. Some of these
 tasks are built in, others are started on demand.
 
 %description -l pl.UTF-8
-KDED to skrót od KDE Daemon, co nie mówi zbyt wiele. KDED działa w tle
-i wykonuje wiele małych zadań. Niektóre są wbudowane, inne uruchamiane
-w razie potrzeby.
+KDED to skrót od KDE Daemon, co nie mówi zbyt wiele. KDED działa w
+tle i wykonuje wiele małych zadań. Niektóre są wbudowane, inne
+uruchamiane w razie potrzeby.
 
 %package devel
 Summary:	Header files for %{kfname} development
@@ -102,27 +102,21 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %{_bindir}/kded5
-%{_datadir}/dbus-1/interfaces/org.kde.kded5.xml
-%{_datadir}/dbus-1/services/org.kde.kded5.service
-%{_datadir}/kservicetypes5/kdedmodule.desktop
-%{_datadir}/qlogging-categories5/kded.categories
-%{_mandir}/man8/kded5.8*
-%{_desktopdir}/org.kde.kded5.desktop
-%lang(ca) %{_mandir}/ca/man8/kded5.8*
-%lang(de) %{_mandir}/de/man8/kded5.8*
-%lang(es) %{_mandir}/es/man8/kded5.8*
-%lang(fr) %{_mandir}/fr/man8/kded5.8*
-%lang(it) %{_mandir}/it/man8/kded5.8*
-%lang(nl) %{_mandir}/nl/man8/kded5.8*
-%lang(pt) %{_mandir}/pt/man8/kded5.8*
-%lang(pt_BR) %{_mandir}/pt_BR/man8/kded5.8*
-%lang(ru) %{_mandir}/ru/man8/kded5.8*
-%lang(sv) %{_mandir}/sv/man8/kded5.8*
-%lang(uk) %{_mandir}/uk/man8/kded5.8*
-%{systemduserunitdir}/plasma-kded.service
-%{_datadir}/qlogging-categories5/kded.renamecategories
+%attr(755,root,root) %{_bindir}/kded6
+%{_datadir}/dbus-1/interfaces/org.kde.kded6.xml
+%{_datadir}/dbus-1/services/org.kde.kded6.service
+%{_datadir}/qlogging-categories6/kded.categories
+%{_desktopdir}/org.kde.kded6.desktop
+%{_datadir}/qlogging-categories6/kded.renamecategories
+%{systemduserunitdir}/plasma-kded6.service
+%{_mandir}/ca/man8/kded6.8*
+%{_mandir}/es/man8/kded6.8*
+%{_mandir}/fr/man8/kded6.8*
+%{_mandir}/it/man8/kded6.8*
+%{_mandir}/man8/kded6.8*
+%{_mandir}/nl/man8/kded6.8*
+%{_mandir}/tr/man8/kded6.8*
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/cmake/KDED
+%{_libdir}/cmake/KF6KDED
